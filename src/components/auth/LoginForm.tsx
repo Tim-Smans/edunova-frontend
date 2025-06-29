@@ -5,9 +5,7 @@ import { Input } from '@heroui/input';
 import { Button } from '@heroui/button';
 import { getDomain } from '@/utils/domainUtils';
 import Tenant from '@/models/tenant';
-import { getHouseStyle } from '@/api/houseStyle';
 import { getTenantByName } from '@/api/tenant';
-import { log } from 'console';
 
 const LoginForm: FC = () => {
     const { login } = useAuth()
