@@ -48,7 +48,7 @@ const CourseBoard: FC = () => {
     return(
         courses?.map(x => {
             return (
-                <CourseCard category={x.category} targetAudience={x.targetAudience} tags={x.tags} title={x.title} imageUrl={x.imageUrl} key={x.id}/>
+                <CourseCard description={x.description} category={x.category} targetAudience={x.targetAudience} tags={x.tags} title={x.title} imageUrl={x.imageUrl} key={x.id}/>
             )
         })
     )

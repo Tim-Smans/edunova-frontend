@@ -11,3 +11,13 @@ export const getTenantByName = async (name: string): Promise<Tenant> => {
     
     return resp.data
 }
+
+export const getTenants = async (): Promise<Tenant[]> => {
+    const resp = await axios.get(`${API_URL}/Tenant`)
+
+        if(resp.status == 401 || resp.status == 404){
+        throw Error(resp.data)
+    }
+
+    return resp.data
+}

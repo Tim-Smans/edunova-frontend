@@ -12,10 +12,11 @@ interface CourseCardProps {
     targetAudience: string
     published?: boolean
     imageUrl?: string
+    description?: string
     tags?: Tag[]
 }
 
-const CourseCard: FC<CourseCardProps> = ({ title, category, targetAudience, published, imageUrl, tags }) => {
+const CourseCard: FC<CourseCardProps> = ({ title, category, targetAudience, published, imageUrl, tags, description }) => {
     return (
     <Card className="py-4">
       <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
@@ -30,6 +31,7 @@ const CourseCard: FC<CourseCardProps> = ({ title, category, targetAudience, publ
           src={imageUrl == null ? '' : imageUrl}
           width={270}
         />
+        {description}
       </CardBody>
       <CardFooter>
         {tags?.map(x => <Chip>{x.title}</Chip>)}

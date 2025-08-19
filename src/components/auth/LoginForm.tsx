@@ -6,6 +6,7 @@ import { Button } from '@heroui/button';
 import { getDomain } from '@/utils/domainUtils';
 import Tenant from '@/models/tenant';
 import { getTenantByName } from '@/api/tenant';
+import OrganisationList from './OrganisationList';
 
 const LoginForm: FC = () => {
     const { login } = useAuth()
@@ -53,17 +54,25 @@ const LoginForm: FC = () => {
         }
     }
 
-    if (getDomain() == null) {
-        return (
-            <h2>Please go to <span className='underline text-red-400'>&lt;organisation&gt;.edunova.com</span></h2>
-        )
-    }
 
     if(notFound == true){
         return(
-            <h2>Domain '{getDomain()}' not found, visit <span className='underline text-red-400'>&lt;organisation&gt;.edunova.com</span></h2>
+            <>
+                <h2>Domain '{getDomain()}' not found, visit <span className='underline text-red-400'>&lt;organisation&gt;.edunova.com</span></h2>
+                <OrganisationList/>
+            </>
         )
     }
+
+        if (getDomain() == null) {
+        return (
+            <>
+                <h2>Please go to <span className='underline text-red-400'>&lt;organisation&gt;.edunova.com</span></h2>
+                <OrganisationList/>
+            </>
+        )
+    }
+
 
     return (
         <form onSubmit={handleSubmit} className="login-form">
